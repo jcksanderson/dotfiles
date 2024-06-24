@@ -19,6 +19,10 @@ export PROMPT='%F{cyan}%n%f: %23<..<%~%<< %# ' # color and shorten
 # cs directory shortcut
 alias cs="cd /Users/jacksanderson/cs/cmsc14300-spr-2024/coursework-jcksanderson"
 
+# [s]how [f]iles 
+alias sf="ls -1"
+
+
 # case-insensitive autocomplete (obsolete w/ zoxide)
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
