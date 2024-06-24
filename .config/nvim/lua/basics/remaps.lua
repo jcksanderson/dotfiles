@@ -4,7 +4,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -21,14 +20,13 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-
-
-
-
 -- NOTE: these were not from kickstart
 
+-- map leader e to end of line
+vim.keymap.set('n', '<leader>e', '$a')
+
 -- open file explorer with pv
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
 
 vim.opt.guicursor = 'n-v-i-c:block-Cursor'
 
@@ -47,7 +45,7 @@ vim.keymap.set('i', '<C-l>', '<C-right>')
 vim.wo.wrap = false
 
 -- disable auto comment
-vim.cmd([[autocmd FileType * set formatoptions-=ro]])
+vim.cmd [[autocmd FileType * set formatoptions-=ro]]
 
 -- shift tab to go back tab
 vim.keymap.set('i', '<S-Tab>', '<C-d>')
@@ -64,5 +62,5 @@ vim.opt.shiftwidth = 2
 vim.keymap.set('v', 'd', '"_d')
 
 -- move selected lines up and down in visual mode
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
