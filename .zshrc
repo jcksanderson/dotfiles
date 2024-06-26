@@ -20,7 +20,9 @@ export PROMPT='%F{cyan}%n%f: %23<..<%~%<< %# ' # color and shorten
 alias cs="cd /Users/jacksanderson/cs/cmsc14300-spr-2024/coursework-jcksanderson"
 
 # [s]how [f]iles 
-alias sf="ls -1"
+# with custom colors
+export LSCOLORS=GxFxCxDxBxegedabagaced
+alias sf="ls -1 --color"
 
 
 # case-insensitive autocomplete (obsolete w/ zoxide)

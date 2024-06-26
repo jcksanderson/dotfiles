@@ -1,5 +1,8 @@
 -- NOTE: the following were from kickstart
 
+vim.keymap.set({ 'n', 'v' }, ';', ':')
+vim.keymap.set({ 'n', 'v' }, ':', ';')
+
 -- leader to space
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
