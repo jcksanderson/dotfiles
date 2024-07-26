@@ -21,8 +21,8 @@ alias cs="cd /Users/jacksanderson/cs/cmsc14300-spr-2024/coursework-jcksanderson"
 
 # [s]how [f]iles 
 # with custom colors
-export LSCOLORS=GxFxCxDxBxegedabagaced
-alias sf="ls -1 --color"
+# export LSCOLORS=GxFxCxDxBxegedabagaced
+alias sf="gls -1 --color -h --group-directories-first --sort=extension"
 
 
 # case-insensitive autocomplete (obsolete w/ zoxide)
