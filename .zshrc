@@ -18,6 +18,9 @@ export PROMPT='%F{cyan}%n%f: %23<..<%~%<< %# ' # color and shorten
 
 # cs directory shortcut
 alias cs="cd /Users/jacksanderson/cs/cmsc14300-spr-2024/coursework-jcksanderson"
+# cs linux machine NVIM shortcut
+alias csvim="nvim scp://jacksanderson@linux.cs.uchicago.edu//home/jacksanderson/cs144/landing.md"
+alias cssh="ssh jacksanderson@linux.cs.uchicago.edu"
 
 # [s]how [f]iles 
 # with custom colors
