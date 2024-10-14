@@ -9,6 +9,7 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # latex to path
 export PATH="/usr/local/texlive/2024/bin/universal-darwin:$PATH"
+export PATH=".:$PATH:/Users/jacksanderson/.local/bin"
 
 # custom prompt
 export PROMPT='%F{cyan}%n%f: %23<..<%~%<< %# ' # color and shorten
@@ -21,6 +22,9 @@ alias cs="cd /Users/jacksanderson/cs/cmsc14300-spr-2024/coursework-jcksanderson"
 # cs linux machine NVIM shortcut
 alias csvim="nvim scp://jacksanderson@linux.cs.uchicago.edu//home/jacksanderson/cs144/landing.md"
 alias cssh="ssh jacksanderson@linux.cs.uchicago.edu"
+
+# pipes alias
+alias p="pipes.sh -p 3 -t 0 -f 20 -R" 
 
 # [s]how [f]iles 
 # with custom colors

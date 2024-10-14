@@ -8,6 +8,9 @@ return {
     require('onedark').setup {
       style = 'warmer',
       transparent = 'true',
+      code_style = {
+        comments = 'none',
+      },
       highlights = {
         ['@markup.italic.markdown_inline'] = {
           italic = false,
