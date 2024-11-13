@@ -18,8 +18,9 @@ return {
     auto_install = true,
     highlight = {
       enable = true,
+      disable = 'markdown',
       -- below setting for if there are highlighting issues
-      additional_vim_regex_highlighting = { 'ruby', 'markdown' },
+      additional_vim_regex_highlighting = { 'ruby' },
     },
     indent = { enable = true, disable = { 'ruby' } },
   },

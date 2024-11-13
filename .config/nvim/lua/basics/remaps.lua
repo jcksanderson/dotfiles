@@ -36,7 +36,9 @@ vim.opt.guicursor = 'n-v-i-c:block-Cursor'
 vim.keymap.set('n', '<ScrollWheelUp>', '<C-Y>')
 vim.keymap.set('n', '<ScrollWheelDown>', '<C-E>')
 
-vim.keymap.set('i', '<Esc><BS>', '<C-w>')
+-- for option + backspace to delete word
+vim.keymap.set('i', '<M-BS>', '<C-w>')
+vim.keymap.set('c', '<M-BS>', '<C-w>')
 
 vim.keymap.set('i', '<C-T>', '<Esc>')
 
@@ -51,7 +53,8 @@ vim.wo.wrap = false
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]
 
 -- shift tab to go back tab
-vim.keymap.set('i', '<S-Tab>', '<C-d>')
+-- vim.keymap.set('i', '<S-Tab>', '<C-d>')
+vim.api.nvim_set_keymap('i', '<S-Tab>', '<Esc><<hi', { noremap = true, silent = true })
 
 -- set column at 80 chars (disabled)
 -- vim.opt.colorcolumn = "80"

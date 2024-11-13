@@ -17,6 +17,11 @@ return {
           bold = true,
           fg = '#fc6d9a',
         },
+        ['@markup.strong.markdown_inline'] = {
+          italic = false,
+          bold = true,
+          fg = '#379b55',
+        },
       },
     }
   end,

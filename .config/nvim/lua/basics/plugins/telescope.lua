@@ -28,6 +28,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
             ['<c-enter>'] = 'to_fuzzy_refine',
             ['<C-j>'] = 'move_selection_next',
             ['<C-k>'] = 'move_selection_previous',
+            ['<M-BS>'] = function()
+              vim.api.nvim_input '<C-w>'
+            end,
           },
         },
       },
