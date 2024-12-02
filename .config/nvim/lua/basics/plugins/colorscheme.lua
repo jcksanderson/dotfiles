@@ -20,7 +20,7 @@ return {
         ['@markup.strong.markdown_inline'] = {
           italic = false,
           bold = true,
-          fg = '#379b55',
+          fg = '#52a9a9',
         },
       },
     }

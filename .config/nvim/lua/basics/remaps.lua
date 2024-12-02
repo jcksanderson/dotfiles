@@ -53,8 +53,8 @@ vim.wo.wrap = false
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]
 
 -- shift tab to go back tab
--- vim.keymap.set('i', '<S-Tab>', '<C-d>')
-vim.api.nvim_set_keymap('i', '<S-Tab>', '<Esc><<hi', { noremap = true, silent = true })
+vim.keymap.set('i', '<S-Tab>', '<C-d>')
+-- vim.api.nvim_set_keymap('i', '<S-Tab>', '<Esc><<hi', { noremap = true, silent = true })
 
 -- set column at 80 chars (disabled)
 -- vim.opt.colorcolumn = "80"
@@ -70,3 +70,10 @@ vim.keymap.set('v', 'd', '"_d')
 -- move selected lines up and down in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- repeated tab/untab in visual mode
+vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
+
+-- center cursor in screen in insert mode
+vim.keymap.set('i', '<C-z>', '<Esc>zza')
