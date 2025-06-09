@@ -1,3 +1,8 @@
+# TEPMORARY RUST LOGGER TESTING COMMAND
+info_test() {
+  RUST_LOG=info cargo test -- --nocapture heapstore "$@"
+}
+
 # startup tmux
 if [ -z "$TMUX" ]
 then

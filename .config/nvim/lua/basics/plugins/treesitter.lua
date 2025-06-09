@@ -18,7 +18,7 @@ return {
     auto_install = true,
     highlight = {
       enable = true,
-      disable = 'markdown',
+      disable = { 'latex' },
       -- below setting for if there are highlighting issues
       additional_vim_regex_highlighting = { 'ruby' },
     },

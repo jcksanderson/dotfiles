@@ -18,15 +18,16 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagn
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Use CTRL+<hjkl> to switch between windows
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- sike, we use CTRL+<[]>
+-- vim.keymap.set('n', '<C-u>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- NOTE: these were not from kickstart
 
 -- map leader e to end of line
-vim.keymap.set('n', '<leader>e', '$a')
+-- vim.keymap.set('n', '<leader>e', '$a')
 
 -- open file explorer with pv
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
@@ -53,7 +54,7 @@ vim.wo.wrap = false
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]
 
 -- shift tab to go back tab
-vim.keymap.set('i', '<S-Tab>', '<C-d>')
+-- vim.keymap.set('i', '<S-Tab>', '<C-d>')
 -- vim.api.nvim_set_keymap('i', '<S-Tab>', '<Esc><<hi', { noremap = true, silent = true })
 
 -- set column at 80 chars (disabled)
@@ -73,7 +74,24 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- repeated tab/untab in visual mode
 vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<C-d>', '<gv', { noremap = true, silent = true })
 
 -- center cursor in screen in insert mode
-vim.keymap.set('i', '<C-z>', '<Esc>zza')
+vim.keymap.set('i', '<C-x>', '<Esc>zza')
+
+-- HACK: LuaSnip and VimTeX keybindings
+
+-- Yes, we're just executing a bunch of Vimscript, but this is the officially
+-- endorsed method; see https://github.com/L3MON4D3/LuaSnip#keymaps
+vim.cmd [[
+" Use Tab to expand and jump through snippets
+imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
+smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
+
+" Use Shift-Tab to jump backwards through snippets
+imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+]]
+
+
+

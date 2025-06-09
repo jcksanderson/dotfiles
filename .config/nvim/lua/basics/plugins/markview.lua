@@ -1,45 +1,56 @@
 return {
-  'OXY2DEV/markview.nvim',
+  "OXY2DEV/markview.nvim",
   lazy = false, -- Recommended
-  -- ft = "markdown" -- If you decide to lazy-load anyway
 
   dependencies = {
-    -- You will not need this if you installed the
-    -- parsers manually
-    -- Or if the parsers are in your $RUNTIMEPATH
-    'nvim-treesitter/nvim-treesitter',
-
-    'nvim-tree/nvim-web-devicons',
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-tree/nvim-web-devicons",
   },
   config = function()
-    require('markview').setup {
+    require("markview").setup({
       code_blocks = {
-        icons = '',
-        style = 'minimal',
-        hl = 'MarkviewCode',
+        icons = "",
+        style = "simple",
+        border_hl = "MarkviewCode",
       },
-      headings = {
-        enable = true,
-        shift_width = 0,
-        heading_1 = {
-          style = 'simple',
+      markdown = {
+        headings = {
+          enable = true,
+          shift_width = 0,
+          heading_1 = {
+            style = "simple",
+          },
+          heading_2 = {
+            style = "simple",
+          },
+          heading_3 = {
+            style = "simple",
+          },
+          heading_4 = { style = "simple" },
+          heading_5 = { style = "simple" },
+          heading_6 = { style = "simple" },
         },
-        heading_2 = {
-          style = 'simple',
+        list_items = {
+          enable = false,
         },
-        heading_3 = {
-          style = 'simple',
+        inline_codes = {
+          enable = false,
         },
-        heading_4 = { style = 'simple' },
-        heading_5 = { style = 'simple' },
-        heading_6 = { style = 'simple' },
-      },
-      list_items = {
-        enable = false,
-      },
-      inline_codes = {
-        enable = false,
-      },
-    }
+        links = {
+          enable = false,
+        },
+        horizontal_rules = {
+          enable = true,
+          parts = {
+            {
+              type = "repeating",
+              repeat_amount = 80,
+              text = "=",
+              hl = "MarkviewHeading1",
+            },
+          },
+        },
+      }
+    })
   end,
 }

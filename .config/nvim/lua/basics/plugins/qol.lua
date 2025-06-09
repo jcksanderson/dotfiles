@@ -28,6 +28,7 @@ return {
     'lukas-reineke/virt-column.nvim',
     opts = {
       virtcolumn = '81',
+      -- exclude = { filetypes = { 'markdown' } },
     },
   },
 

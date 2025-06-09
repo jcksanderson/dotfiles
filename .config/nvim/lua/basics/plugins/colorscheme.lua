@@ -12,15 +12,16 @@ return {
         comments = 'none',
       },
       highlights = {
-        ['@markup.italic.markdown_inline'] = {
-          italic = false,
-          bold = true,
-          fg = '#fc6d9a',
-        },
-        ['@markup.strong.markdown_inline'] = {
-          italic = false,
-          bold = true,
+        ['@markup.italic'] = {
           fg = '#52a9a9',
+          italic = true,
+        },
+        ['@markup.strong'] = {
+          fg = '#fc6d9a',
+          bold = true,
+        },
+        ['MarkviewCode'] = {
+          bg = '#303332',
         },
       },
     }
