@@ -17,17 +17,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Use CTRL+<hjkl> to switch between windows
--- sike, we use CTRL+<[]>
--- vim.keymap.set('n', '<C-u>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('n', '<C-i>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-
 -- NOTE: these were not from kickstart
-
--- map leader e to end of line
--- vim.keymap.set('n', '<leader>e', '$a')
 
 -- open file explorer with pv
 vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
@@ -44,8 +34,8 @@ vim.keymap.set('c', '<M-BS>', '<C-w>')
 vim.keymap.set('i', '<C-T>', '<Esc>')
 
 -- navigate words in insert mode easily
-vim.keymap.set('i', '<C-k>', '<C-left>')
-vim.keymap.set('i', '<C-l>', '<C-right>')
+vim.keymap.set('i', '<C-a>', '<C-left>')
+vim.keymap.set('i', '<C-f>', '<C-right>')
 
 -- disable wrapping
 vim.wo.wrap = false
@@ -54,27 +44,25 @@ vim.wo.wrap = false
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]
 
 -- shift tab to go back tab
--- vim.keymap.set('i', '<S-Tab>', '<C-d>')
--- vim.api.nvim_set_keymap('i', '<S-Tab>', '<Esc><<hi', { noremap = true, silent = true })
-
--- set column at 80 chars (disabled)
--- vim.opt.colorcolumn = "80"
+vim.keymap.set('i', '<S-Tab>', '<C-d>')
+-- vim.keymap.set('i', '<S-Tab>', '<Esc><<hi', { noremap = true, silent = true })
 
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 
--- disable d cutting in visual mode, just deletes
+-- disable d cutting, just deletes
 -- use x to cut
-vim.keymap.set('v', 'd', '"_d')
+vim.keymap.set({ 'v', 'n' }, 'd', '"_d')
+vim.keymap.set({ 'v' }, 'D', '"_d')
 
 -- move selected lines up and down in visual mode
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
 -- repeated tab/untab in visual mode
-vim.api.nvim_set_keymap('v', '<Tab>', '>gv', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<C-d>', '<gv', { noremap = true, silent = true })
+vim.keymap.set('v', '<Tab>', '>gv', { noremap = true, silent = true })
+vim.keymap.set('v', '<S-Tab>', '<gv', { noremap = true, silent = true })
 
 -- center cursor in screen in insert mode
 vim.keymap.set('i', '<C-x>', '<Esc>zza')
@@ -87,11 +75,9 @@ vim.cmd [[
 " Use Tab to expand and jump through snippets
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>'
 smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
-
-" Use Shift-Tab to jump backwards through snippets
-imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
-smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
 ]]
-
-
-
+--
+-- " Use Shift-Tab to jump backwards through snippets
+-- imap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+-- smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '<S-Tab>'
+-- ]]

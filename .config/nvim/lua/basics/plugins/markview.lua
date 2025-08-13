@@ -1,56 +1,59 @@
 return {
-  "OXY2DEV/markview.nvim",
-  lazy = false, -- Recommended
-
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter",
-    "nvim-tree/nvim-web-devicons",
-  },
-  config = function()
-    require("markview").setup({
-      code_blocks = {
-        icons = "",
-        style = "simple",
-        border_hl = "MarkviewCode",
-      },
-      markdown = {
-        headings = {
-          enable = true,
-          shift_width = 0,
-          heading_1 = {
-            style = "simple",
-          },
-          heading_2 = {
-            style = "simple",
-          },
-          heading_3 = {
-            style = "simple",
-          },
-          heading_4 = { style = "simple" },
-          heading_5 = { style = "simple" },
-          heading_6 = { style = "simple" },
-        },
-        list_items = {
-          enable = false,
-        },
-        inline_codes = {
-          enable = false,
-        },
-        links = {
-          enable = false,
-        },
-        horizontal_rules = {
-          enable = true,
-          parts = {
-            {
-              type = "repeating",
-              repeat_amount = 80,
-              text = "=",
-              hl = "MarkviewHeading1",
-            },
-          },
-        },
-      }
-    })
-  end,
+  -- "OXY2DEV/markview.nvim",
+  -- lazy = false, -- Recommended
+  --
+  -- dependencies = {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   "nvim-tree/nvim-web-devicons",
+  -- },
+  -- config = function()
+  --   require("markview").setup({
+  --     code_blocks = {
+  --       icons = "",
+  --       style = "simple",
+  --       border_hl = "MarkviewCode",
+  --     },
+  --     markdown = {
+  --       headings = {
+  --         enable = true,
+  --         shift_width = 0,
+  --         heading_1 = {
+  --           style = "simple",
+  --         },
+  --         heading_2 = {
+  --           style = "simple",
+  --         },
+  --         heading_3 = {
+  --           style = "simple",
+  --         },
+  --         heading_4 = { style = "simple" },
+  --         heading_5 = { style = "simple" },
+  --         heading_6 = { style = "simple" },
+  --       },
+  --       list_items = {
+  --         enable = false,
+  --       },
+  --       inline_codes = {
+  --         enable = false,
+  --       },
+  --       links = {
+  --         enable = false,
+  --       },
+  --       horizontal_rules = {
+  --         enable = true,
+  --         parts = {
+  --           {
+  --             type = "repeating",
+  --             repeat_amount = 80,
+  --             text = "=",
+  --             hl = "MarkviewHeading1",
+  --           },
+  --         },
+  --       },
+  --     },
+  --     latex = {
+  --       enable = false
+  --     },
+  --   })
+  -- end,
 }

@@ -61,19 +61,3 @@ vim.opt.mousescroll = 'ver:1,hor:0'
 
 -- make latex always latex
 vim.g.tex_flavor = 'latex'
-
-
--- automatically focus ghostty after inverse serach on skim pdf reader
-local function TexFocusVim()
-  vim.cmd('silent !open -a Ghostty')
-  vim.cmd('redraw!')
-end
-
-local vimtex_focus_group = vim.api.nvim_create_augroup("vimtex_event_focus", { clear = true })
-
-vim.api.nvim_create_autocmd("User", {
-  pattern = "VimtexEventViewReverse",
-  group = vimtex_focus_group,
-  desc = "Focus Ghostty terminal on VimTeX reverse view sync",
-  callback = TexFocusVim,
-})

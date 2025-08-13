@@ -1,15 +1,10 @@
-# TEPMORARY RUST LOGGER TESTING COMMAND
-info_test() {
-  RUST_LOG=info cargo test -- --nocapture heapstore "$@"
-}
-
 # startup tmux
 if [ -z "$TMUX" ]
 then
     tmux attach -t base || tmux new -s base
 fi
 
-# add zoxide
+# zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
 # latex to path
@@ -22,32 +17,45 @@ export PROMPT='%B%F{205}%n%f%b: %23<..<%~%<< %# ' # color and shorten
 # export PROMPT='%F{cyan}%n%f:~$ '
 # export PROMPT='%n@%m:%15<..<%~%<<%# ' # shortens path
 
-# cs directory shortcut
-alias cs="cd /Users/jacksanderson/cs/cs144/jacksanderson-cs144-aut-24/"
-# cs linux machine NVIM shortcut
-alias csvim="nvim scp://jacksanderson@linux.cs.uchicago.edu//home/jacksanderson/cs144/landing.md"
-alias cssh="ssh jacksanderson@linux.cs.uchicago.edu"
 
-# pipes alias
-alias p="pipes.sh -p 3 -t 0 -f 20 -R" 
+# HACK: ========== Aliases ==========
 
 # [s]how [f]iles 
 # with custom colors
 # export LSCOLORS=GxFxCxDxBxegedabagaced
 alias sf="gls -1 --color -h --group-directories-first --sort=extension"
 
+# cs linux machine NVIM shortcut
+alias cssh="ssh jacksanderson@linux.cs.uchicago.edu"
 
+# NOTE: ===== GIT COMMAND STUFF =====
+alias gau="git add -u"
+alias ga="git add"
+alias gc="git commit -m "
+alias gp="git push"
+alias gpl="git pull"
+alias gs="git status"
+
+alias vim="nvim"
+alias venv="source .venv/bin/activate"
+
+# pipes alias
+alias p="pipes.sh -p 3 -t 0 -f 20 -R" 
+
+# HACK: ========== End Aliases ==========
 
 # case-insensitive autocomplete (obsolete w/ zoxide)
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
-# for criterion compilation
+# dotfile repo shortcut
+alias config="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
+# for C criterion compilation
 export LIBRARY_PATH="/opt/homebrew/lib"
 export CPATH="/opt/homebrew/include"
 
-# dotfile repo shortcut
-alias config="git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

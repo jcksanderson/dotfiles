@@ -29,5 +29,6 @@ return {
     require('nvim-treesitter.install').prefer_git = true
     ---@diagnostic disable-next-line: missing-fields
     require('nvim-treesitter.configs').setup(opts)
+    vim.treesitter.language.register('markdown', 'mdx')
   end,
 }
